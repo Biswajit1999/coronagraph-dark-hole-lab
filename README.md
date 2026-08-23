@@ -5,6 +5,8 @@ An interactive reduced-order model of electric-field-conjugation (EFC) convergen
 [![CI](https://github.com/Biswajit1999/coronagraph-dark-hole-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Biswajit1999/coronagraph-dark-hole-lab/actions/workflows/ci.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-violet.svg)](LICENSE)
 
+**[Launch the interactive laboratory →](https://biswajit1999.github.io/coronagraph-dark-hole-lab/)**
+
 ## Purpose
 
 Direct imaging of faint exoplanets requires suppression of diffracted starlight and quasi-static speckles. A coronagraph removes the ideal on-axis field; a deformable mirror (DM) and focal-plane estimator then work to suppress residual coherent structure over a selected image region. This project exposes the sensitivity of that loop to entering wavefront error, wavelength, DM sampling, gain, and regularisation.
