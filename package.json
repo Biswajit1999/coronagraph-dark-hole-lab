@@ -1,0 +1,29 @@
+{
+  "name": "coronagraph-dark-hole-lab",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit --project tsconfig.app.json && vite build",
+    "test": "vitest run",
+    "check": "npm run lint && npm run test && npm run build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "motion": "^12.23.12",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "4.7.0",
+    "oxlint": "1.15.0",
+    "typescript": "~5.7.2",
+    "vite": "6.4.3",
+    "vitest": "3.2.6"
+  }
+}

@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this research workbench, please cite it using this metadata."
+title: "Coronagraph Dark Hole Lab"
+type: software
+authors:
+  - family-names: Jana
+    given-names: Biswajit
+version: 1.0.0
+date-released: 2026-08-23
+license: MIT
+repository-code: "https://github.com/Biswajit1999/coronagraph-dark-hole-lab"
+keywords: [coronagraphy, wavefront control, exoplanet imaging, electric field conjugation]
