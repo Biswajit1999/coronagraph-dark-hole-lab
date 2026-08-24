@@ -1,6 +1,6 @@
 # Coronagraph Dark Hole Lab
 
-An interactive reduced-order model of electric-field-conjugation (EFC) convergence in a high-contrast coronagraphic dark hole.
+A provenance-first audit of the official Roman CGI OS11 v3 Hybrid Lyot sky-transmission map, with the reduced EFC model retained as a tested comparison layer.
 
 [![CI](https://github.com/Biswajit1999/coronagraph-dark-hole-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Biswajit1999/coronagraph-dark-hole-lab/actions/workflows/ci.yml)
 [![MIT License](https://img.shields.io/badge/license-MIT-violet.svg)](LICENSE)
@@ -9,7 +9,16 @@ An interactive reduced-order model of electric-field-conjugation (EFC) convergen
 
 ## Purpose
 
-Direct imaging of faint exoplanets requires suppression of diffracted starlight and quasi-static speckles. A coronagraph removes the ideal on-axis field; a deformable mirror (DM) and focal-plane estimator then work to suppress residual coherent structure over a selected image region. This project exposes the sensitivity of that loop to entering wavefront error, wavelength, DM sampling, gain, and regularisation.
+Direct imaging of faint exoplanets requires both starlight suppression and usable off-axis throughput. The primary product now derives from the Roman CGI team's official 448,088,109-byte OS11 v3 archive: the 275 × 275 HLC sky-transmission FITS map, bound to the interface by archive and member SHA-256 receipts.
+
+## Real instrument-team product route
+
+```bash
+python -m pip install -r requirements-data.txt
+python scripts/build_roman_os11.py
+```
+
+The raw 448 MB archive is ignored by Git. The repository versions a compact interactive derivative, exact ZIP member name, FITS geometry, source URL, archive hash, member hash, and explicit simulation boundary. OS11 is a flight-design observing-scenario simulation—not on-sky Roman data.
 
 ## Research question
 
@@ -17,7 +26,11 @@ Which parameter limits the final contrast in a simplified EFC loop: entering pha
 
 ## Features
 
-- small-aberration phase-leakage estimate from `2πσ/λ`;
+- official Roman CGI OS11 v3 archive ingestion and size validation;
+- archive- and FITS-member SHA-256 provenance;
+- interactive off-axis sky-transmission probe;
+- contrast-versus-throughput interpretation audit;
+- small-aberration phase-leakage estimate retained in `src/science.ts`;
 - explicit actuator- and regularisation-dependent contrast floor;
 - 40-step EFC energy envelope;
 - deterministic coherent-speckle modulation;
