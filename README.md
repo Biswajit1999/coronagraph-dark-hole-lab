@@ -38,6 +38,8 @@ Which parameter limits the final contrast in a simplified EFC loop: entering pha
 - log-contrast SVG diagnostic and accessible table;
 - Motion-based state continuity with `prefers-reduced-motion` support;
 - tested monotonic envelope, actuator scaling, and zero-gain limit.
+- Python robustness analyses for broadband quadrature convergence, pointing-jitter
+  sensitivity, and synthetic detector-count recovery with propagated uncertainty.
 
 ## Reduced-order model
 
@@ -74,6 +76,8 @@ npm run dev
 
 ```bash
 npm run check
+python scripts/run_robustness.py
+python -m unittest discover -s tests -v
 ```
 
 ## Repository map
@@ -84,6 +88,9 @@ src/science.test.ts  monotonicity and limiting-case tests
 src/project.ts       controls, claims, and assumptions
 src/Chart.tsx        log-contrast diagnostic
 docs/METHODS.md      relation to full focal-plane control
+docs/ROBUSTNESS.md   equations, units, assumptions, and limitations
+research/coronagraph_robustness.py  three deterministic robustness analyses
+results/             machine-readable evidence and an accessible SVG figure
 design-system/       persisted visual-system recommendation
 ```
 

@@ -1,0 +1,142 @@
+{
+  "schema": "coronagraph-robustness/1",
+  "provenance": "deterministic reduced-order model and synthetic Poisson/Gaussian recovery",
+  "is_observation": false,
+  "analyses": {
+    "broadband_quadrature_convergence": [
+      {
+        "samples": 5,
+        "contrast": 6.956106766821945e-10,
+        "relative_error": 0.0012785281109137555
+      },
+      {
+        "samples": 9,
+        "contrast": 6.94944653650371e-10,
+        "relative_error": 0.0003198387414910645
+      },
+      {
+        "samples": 17,
+        "contrast": 6.947780132789726e-10,
+        "relative_error": 7.99726333491955e-05
+      },
+      {
+        "samples": 33,
+        "contrast": 6.947363447510934e-10,
+        "relative_error": 1.999396473181015e-05
+      },
+      {
+        "samples": 65,
+        "contrast": 6.947259270915938e-10,
+        "relative_error": 4.9985382385661675e-06
+      },
+      {
+        "samples": 129,
+        "contrast": 6.947233226437428e-10,
+        "relative_error": 1.2496341487138295e-06
+      }
+    ],
+    "pointing_jitter_sensitivity": [
+      {
+        "jitter_mas_rms": 0.0,
+        "coupling": 1e-07,
+        "contrast": 1e-09
+      },
+      {
+        "jitter_mas_rms": 0.2,
+        "coupling": 1e-07,
+        "contrast": 1.0016379344563216e-09
+      },
+      {
+        "jitter_mas_rms": 0.5,
+        "coupling": 1e-07,
+        "contrast": 1.0102370903520099e-09
+      },
+      {
+        "jitter_mas_rms": 1.0,
+        "coupling": 1e-07,
+        "contrast": 1.0409483614080394e-09
+      },
+      {
+        "jitter_mas_rms": 1.5,
+        "coupling": 1e-07,
+        "contrast": 1.0921338131680888e-09
+      },
+      {
+        "jitter_mas_rms": 2.0,
+        "coupling": 1e-07,
+        "contrast": 1.1637934456321576e-09
+      },
+      {
+        "jitter_mas_rms": 0.0,
+        "coupling": 2e-07,
+        "contrast": 1e-09
+      },
+      {
+        "jitter_mas_rms": 0.2,
+        "coupling": 2e-07,
+        "contrast": 1.0032758689126433e-09
+      },
+      {
+        "jitter_mas_rms": 0.5,
+        "coupling": 2e-07,
+        "contrast": 1.0204741807040197e-09
+      },
+      {
+        "jitter_mas_rms": 1.0,
+        "coupling": 2e-07,
+        "contrast": 1.081896722816079e-09
+      },
+      {
+        "jitter_mas_rms": 1.5,
+        "coupling": 2e-07,
+        "contrast": 1.1842676263361775e-09
+      },
+      {
+        "jitter_mas_rms": 2.0,
+        "coupling": 2e-07,
+        "contrast": 1.3275868912643153e-09
+      },
+      {
+        "jitter_mas_rms": 0.0,
+        "coupling": 4e-07,
+        "contrast": 1e-09
+      },
+      {
+        "jitter_mas_rms": 0.2,
+        "coupling": 4e-07,
+        "contrast": 1.0065517378252864e-09
+      },
+      {
+        "jitter_mas_rms": 0.5,
+        "coupling": 4e-07,
+        "contrast": 1.0409483614080394e-09
+      },
+      {
+        "jitter_mas_rms": 1.0,
+        "coupling": 4e-07,
+        "contrast": 1.1637934456321576e-09
+      },
+      {
+        "jitter_mas_rms": 1.5,
+        "coupling": 4e-07,
+        "contrast": 1.3685352526723547e-09
+      },
+      {
+        "jitter_mas_rms": 2.0,
+        "coupling": 4e-07,
+        "contrast": 1.6551737825286306e-09
+      }
+    ],
+    "synthetic_count_recovery": {
+      "trials": 20000,
+      "exposure_s": 1800.0,
+      "injected_planet_electrons": 144.0,
+      "mean_recovered_electrons": 143.81428025140963,
+      "recovery_bias_fraction": -0.0012897204763220316,
+      "empirical_sigma_electrons": 43.29063733727664,
+      "analytic_sigma_electrons": 43.474130238568314,
+      "empirical_snr": 3.326354354132012,
+      "analytic_snr": 3.3123146848433005
+    }
+  }
+}
