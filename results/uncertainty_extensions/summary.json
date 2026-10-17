@@ -1,0 +1,64 @@
+{
+  "provenance": "seeded synthetic reduced-order calculations; NOT Roman CGI measurements",
+  "quadrature": [
+    {
+      "grid_size": 5,
+      "trapezoid_contrast": 6.956106766821944e-10,
+      "exact_contrast": 6.947224544915281e-10,
+      "absolute_error": 8.882221906662726e-13,
+      "relative_error": 0.001278528115686671
+    },
+    {
+      "grid_size": 9,
+      "trapezoid_contrast": 6.94944653650371e-10,
+      "exact_contrast": 6.947224544915281e-10,
+      "absolute_error": 2.2219915884293386e-13,
+      "relative_error": 0.000319838746259559
+    },
+    {
+      "grid_size": 17,
+      "trapezoid_contrast": 6.947780132789726e-10,
+      "exact_contrast": 6.947224544915281e-10,
+      "absolute_error": 5.5558787444489965e-14,
+      "relative_error": 7.997263811654657e-05
+    },
+    {
+      "grid_size": 33,
+      "trapezoid_contrast": 6.947363447510934e-10,
+      "exact_contrast": 6.947224544915281e-10,
+      "absolute_error": 1.389025956528739e-14,
+      "relative_error": 1.999396949887529e-05
+    },
+    {
+      "grid_size": 65,
+      "trapezoid_contrast": 6.947259270915938e-10,
+      "exact_contrast": 6.947224544915281e-10,
+      "absolute_error": 3.4726000657039807e-15,
+      "relative_error": 4.998543005559824e-06
+    },
+    {
+      "grid_size": 129,
+      "trapezoid_contrast": 6.947233226437428e-10,
+      "exact_contrast": 6.947224544915281e-10,
+      "absolute_error": 8.681522147360212e-16,
+      "relative_error": 1.2496389156896151e-06
+    }
+  ],
+  "jitter": {
+    "nominal_contrast": 1.081896722816079e-09,
+    "delta_method_sigma": 1.013334051658994e-10,
+    "monte_carlo_mean": 1.0813121228278145e-09,
+    "monte_carlo_sigma": 1.0068615490526011e-10,
+    "monte_carlo_p05": 9.157520810380921e-10,
+    "monte_carlo_p95": 1.247093804903076e-09,
+    "trials": 50000,
+    "invalid_draw_fraction": 0.0
+  },
+  "allocation": {
+    "optimal_science_fraction": 0.5197979797979798,
+    "optimal_snr": 3.3145716787526975,
+    "equal_split_snr": 3.3123146848433005,
+    "photon_limit_optimal_fraction": 0.5196380905569193,
+    "relative_gain_vs_equal": 0.0006813947719777058
+  }
+}
