@@ -1,0 +1,9 @@
+# Complex-field control: synthetic numerical validation
+
+This addition complements, rather than replaces, the official Roman OS11 sky-transmission provenance audit and the existing scalar leakage surrogate. **No Roman optical Jacobian, detector frames, flight data, or laboratory measurements are used.** All field units and actuator units are arbitrary.
+
+1. **Regularized electric-field conjugation.** A linearized complex Jacobian G maps *real* DM commands u to a complex dark-hole field E+Gu. The augmented real least-squares system minimizes sum(w |E+Gu|²) + alpha ||u||² without forming normal equations. A regularization sweep reports intensity/stroke tradeoffs. This is not a physical diffraction calculation.
+2. **Pairwise-probe identifiability and uncertainty.** Opposite probes obey I(E+p)-I(E-p)=4 Re(conj(E)p). At least two linearly independent probe quadratures are required. Weighted least squares returns a two-component field covariance. A seeded Poisson-plus-Gaussian count experiment compares empirical with analytic uncertainty under an independent Gaussian-difference approximation.
+3. **Jacobian model-error sensitivity.** The controller solves against a perturbed model, while residual field intensity is evaluated against a separate synthetic true Jacobian. This explicitly distinguishes predicted and achieved suppression; mismatch fractions are assumptions, not calibration results.
+
+Reproduce with `python scripts/run_field_control.py` and `python -m unittest discover -s tests -v`. The JSON report is a deterministic numerical experiment. The simulator omits polarization, broadband propagation, actuator influence functions, detector saturation, correlated read noise, finite probe duration, and calibration drift. The alpha=0 minimum-norm solution can be physically infeasible; strokes are unconstrained. Do not interpret intensities as Roman contrast predictions.
