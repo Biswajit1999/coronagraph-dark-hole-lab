@@ -6,6 +6,8 @@ def matched_amplitude(image, template, covariance):
     y, t, c = np.asarray(image,float).ravel(), np.asarray(template,float).ravel(), np.asarray(covariance,float)
     if y.shape != t.shape or not y.size or c.shape != (y.size,y.size) or not all(np.all(np.isfinite(a)) for a in (y,t,c)):
         raise ValueError('invalid inputs')
+    if not np.allclose(c, c.T, rtol=1e-12, atol=0):
+        raise ValueError('covariance must be symmetric')
     l = np.linalg.cholesky(c)
     a, b = np.linalg.solve(l,t), np.linalg.solve(l,y)
     norm = a@a
@@ -20,7 +22,7 @@ def injection_recovery(background, template, amplitudes, subtractor, covariance)
     bg, t = np.asarray(background,float), np.asarray(template,float)
     if bg.shape != t.shape or not np.all(np.isfinite(bg)) or not np.all(np.isfinite(t)):
         raise ValueError('invalid arrays')
-    baseline = np.asarray(subtractor(bg),float)
+    baseline = np.asarray(subtractor(bg.copy()),float)
     if baseline.shape != bg.shape: raise ValueError('subtractor shape')
     base_amp, _ = matched_amplitude(baseline,t,covariance)
     result=[]
