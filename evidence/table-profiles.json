@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "project": "Coronagraph Dark Hole Lab",
+  "tables": [
+    {
+      "path": "results/jitter_sensitivity.csv",
+      "label": "Jitter sensitivity",
+      "role": "Tables and numerical results",
+      "rows": 18,
+      "width_mismatches": 0,
+      "columns": [
+        {
+          "name": "jitter_mas_rms",
+          "blank": 0,
+          "text": 0,
+          "finite": 18,
+          "nonfinite": 0,
+          "minimum": 0.0,
+          "maximum": 2.0
+        },
+        {
+          "name": "coupling",
+          "blank": 0,
+          "text": 0,
+          "finite": 18,
+          "nonfinite": 0,
+          "minimum": 1e-07,
+          "maximum": 4e-07
+        },
+        {
+          "name": "contrast",
+          "blank": 0,
+          "text": 0,
+          "finite": 18,
+          "nonfinite": 0,
+          "minimum": 1e-09,
+          "maximum": 1.6551737825286306e-09
+        }
+      ]
+    }
+  ],
+  "excluded": []
+}
