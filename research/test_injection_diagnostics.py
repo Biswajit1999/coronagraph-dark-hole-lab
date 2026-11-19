@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from injection_diagnostics import matched_amplitude, injection_recovery, equicorrelated_covariance
+from research.injection_diagnostics import matched_amplitude, injection_recovery, equicorrelated_covariance
 
 class Tests(unittest.TestCase):
     def test_exact(self):
