@@ -1,0 +1,31 @@
+{
+  "project": "Coronagraph Dark Hole Lab",
+  "repository": "https://github.com/Biswajit1999/coronagraph-dark-hole-lab",
+  "files": [
+    {
+      "label": "Report source",
+      "path": "research/report-source.md",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Roman hlc os11",
+      "path": "public/data/roman-hlc-os11.json",
+      "role": "Data and provenance"
+    },
+    {
+      "label": "Coronagraph robustness",
+      "path": "results/coronagraph_robustness.json",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Jitter sensitivity",
+      "path": "results/jitter_sensitivity.csv",
+      "role": "Tables and numerical results"
+    },
+    {
+      "label": "Jitter sensitivity",
+      "path": "results/jitter_sensitivity.svg",
+      "role": "Figures"
+    }
+  ]
+}

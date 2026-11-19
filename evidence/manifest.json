@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "project": "Coronagraph Dark Hole Lab",
+  "repository": "https://github.com/Biswajit1999/coronagraph-dark-hole-lab",
+  "files": [
+    {
+      "label": "Report source",
+      "path": "research/report-source.md",
+      "role": "Data and provenance",
+      "bytes": 907,
+      "sha256": "f16f7d983c424f7199aeba4608d592a16e82d39a305bdfa1347fd3f051ec3e2d",
+      "hash_basis": "LF-normalised text",
+      "format": "MD"
+    },
+    {
+      "label": "Roman hlc os11",
+      "path": "public/data/roman-hlc-os11.json",
+      "role": "Data and provenance",
+      "bytes": 85154,
+      "sha256": "da93d1fb7f4168975f21e6b758b605edcf8b2e1545bcf117c1fe01efe51ac7f5",
+      "hash_basis": "LF-normalised text",
+      "format": "JSON",
+      "keys": [
+        "schema",
+        "generatedAtUtc",
+        "source",
+        "fits",
+        "preview",
+        "grid",
+        "warning"
+      ],
+      "arrays": {
+        "grid": 128
+      }
+    },
+    {
+      "label": "Coronagraph robustness",
+      "path": "results/coronagraph_robustness.json",
+      "role": "Tables and numerical results",
+      "bytes": 3566,
+      "sha256": "0511cc955c81e6168d11071d637277afe089a9949473f9e73fe22c5f22c52e88",
+      "hash_basis": "LF-normalised text",
+      "format": "JSON",
+      "keys": [
+        "schema",
+        "provenance",
+        "is_observation",
+        "analyses"
+      ],
+      "arrays": {}
+    },
+    {
+      "label": "Jitter sensitivity",
+      "path": "results/jitter_sensitivity.csv",
+      "role": "Tables and numerical results",
+      "bytes": 575,
+      "sha256": "8eeb85db7ddc4ea0082d3e27de787ff993bd5df3dccced4c1f6a642b27739640",
+      "hash_basis": "LF-normalised text",
+      "format": "CSV",
+      "rows": 18,
+      "columns": 3,
+      "headers": [
+        "jitter_mas_rms",
+        "coupling",
+        "contrast"
+      ],
+      "preview": [
+        [
+          "0.0",
+          "1e-07",
+          "1e-09"
+        ],
+        [
+          "0.2",
+          "1e-07",
+          "1.0016379344563216e-09"
+        ],
+        [
+          "0.5",
+          "1e-07",
+          "1.0102370903520099e-09"
+        ],
+        [
+          "1.0",
+          "1e-07",
+          "1.0409483614080394e-09"
+        ]
+      ]
+    },
+    {
+      "label": "Jitter sensitivity",
+      "path": "results/jitter_sensitivity.svg",
+      "role": "Figures",
+      "bytes": 2403,
+      "sha256": "98bc9ede78130dba499bed9e6c640c99a4a1c9fee7b7c40ab7c2f230357a8907",
+      "hash_basis": "LF-normalised text",
+      "format": "SVG"
+    }
+  ]
+}
