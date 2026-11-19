@@ -1,2 +1,22 @@
 html,body{overflow-x:clip}
 .readout>strong{font-size:clamp(4rem,6vw,6rem)}
+
+.jitter-evidence {
+  padding: clamp(24px, 5vw, 64px) 0;
+}
+.jitter-evidence figure {
+  max-width: 720px;
+  margin: 1rem 0 0;
+}
+.jitter-evidence img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.jitter-evidence figcaption {
+  margin-top: .7rem;
+  line-height: 1.6;
+}
+.jitter-evidence a {
+  text-decoration: underline;
+}
