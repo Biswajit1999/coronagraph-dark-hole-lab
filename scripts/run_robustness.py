@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -24,24 +25,39 @@ def _svg(rows: list[dict[str, float]]) -> str:
         grouped.setdefault(row["coupling"], []).append(row)
     all_y = [r["contrast"] for r in rows]
     lo, hi = min(all_y), max(all_y)
-    import math
     ylo, yhi = math.log10(lo), math.log10(hi)
+    xmax = max(row["jitter_mas_rms"] for row in rows)
     colours = ["#0f766e", "#7c3aed", "#c2410c"]
     lines = []
     for colour, (coupling, values) in zip(colours, sorted(grouped.items()), strict=True):
         points = []
-        max_x = max(v["jitter_mas_rms"] for v in values)
         for value in values:
-            x = x0 + plot_w * value["jitter_mas_rms"] / max_x
+            x = x0 + plot_w * value["jitter_mas_rms"] / xmax
             y = y0 + plot_h * (yhi - math.log10(value["contrast"])) / (yhi - ylo)
             points.append(f"{x:.1f},{y:.1f}")
         lines.append(f'<polyline fill="none" stroke="{colour}" stroke-width="3" points="{" ".join(points)}"/>')
         lines.append(f'<text x="{x0 + 12}" y="{y0 + 22 + 20 * len(lines)//2}" fill="{colour}" font-size="13">k={coupling:.0e}</text>')
+    x_ticks = []
+    for i in range(5):
+        fraction = i / 4
+        x = x0 + fraction * plot_w
+        x_ticks.append(
+            f'<text x="{x}" y="{y0 + plot_h + 21}" text-anchor="middle" font-size="12">{xmax*fraction:g}</text>'
+        )
+    y_ticks = []
+    for value in (1.0e-9, 1.2e-9, 1.4e-9, 1.6e-9):
+        y = y0 + plot_h * (yhi - math.log10(value)) / (yhi - ylo)
+        y_ticks.append(
+            f'<line x1="{x0}" y1="{y:.1f}" x2="{x0 + plot_w}" y2="{y:.1f}" stroke="#d6dbe0"/>'
+            f'<text x="{x0 - 7}" y="{y + 4:.1f}" text-anchor="end" font-size="11">{value/1e-9:.1f}</text>'
+        )
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
 <title id="title">Synthetic pointing-jitter leakage sensitivity</title><desc id="desc">Model contrast increases quadratically with RMS jitter for three illustrative coupling coefficients.</desc>
-<rect width="100%" height="100%" fill="#fafafa"/><line x1="{x0}" y1="{y0+plot_h}" x2="{x0+plot_w}" y2="{y0+plot_h}" stroke="#111827"/><line x1="{x0}" y1="{y0}" x2="{x0}" y2="{y0+plot_h}" stroke="#111827"/>
+<rect width="100%" height="100%" fill="#fafafa"/>
+<g font-family="sans-serif" fill="#111827">{''.join(x_ticks)}{''.join(y_ticks)}</g>
+<line x1="{x0}" y1="{y0+plot_h}" x2="{x0+plot_w}" y2="{y0+plot_h}" stroke="#111827"/><line x1="{x0}" y1="{y0}" x2="{x0}" y2="{y0+plot_h}" stroke="#111827"/>
 {''.join(lines)}
-<text x="360" y="405" text-anchor="middle" font-family="sans-serif" font-size="14">RMS pointing jitter (mas)</text><text transform="translate(18 220) rotate(-90)" text-anchor="middle" font-family="sans-serif" font-size="14">Model intensity contrast (log scale)</text>
+<text x="360" y="405" text-anchor="middle" font-family="sans-serif" font-size="14">RMS pointing jitter (mas)</text><text transform="translate(18 220) rotate(-90)" text-anchor="middle" font-family="sans-serif" font-size="14">Model contrast (×10⁻⁹; log scale)</text>
 <text x="{x0}" y="20" font-family="sans-serif" font-size="12">Synthetic model prediction; not measured Roman CGI performance</text></svg>'''
 
 
@@ -63,7 +79,7 @@ def main() -> None:
     }
     (output / "coronagraph_robustness.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     with (output / "jitter_sensitivity.csv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(jitter[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(jitter[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(jitter)
     (output / "jitter_sensitivity.svg").write_text(_svg(jitter), encoding="utf-8")

@@ -24,6 +24,10 @@ The raw 448 MB archive is ignored by Git. The repository versions a compact inte
 
 Which parameter limits the final contrast in a simplified EFC loop: entering phase leakage, convergence rate, spatial control authority, or the regularisation floor?
 
+![Three model contrast curves across RMS pointing jitter, with one curve per assumed coupling](results/jitter_sensitivity.svg)
+
+The curves use three assumed jitter couplings in a reduced-order model. The Roman design simulation supplies the separate field-transmission map. [Download the synthetic figure data](results/jitter_sensitivity.csv) or [read the injection-recovery methods](research/INJECTION_DIAGNOSTICS.md).
+
 ## Features
 
 - official Roman CGI OS11 v3 archive ingestion and size validation;
