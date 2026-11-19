@@ -132,3 +132,18 @@ The displayed `λ/D` radius is the nominal DM Nyquist radius, not a guarantee of
 ## Citation and license
 
 See [`CITATION.cff`](CITATION.cff). Licensed under [MIT](LICENSE).
+
+## Research evidence and downloads
+
+- [Download the machine-readable table profiles](evidence/table-profiles.json) for 1 archived tables. Open `table-evidence.html` from the checkout for the coverage chart.
+- Start with [Coronagraph robustness](results/coronagraph_robustness.json), [Jitter sensitivity](results/jitter_sensitivity.csv), [Report source](research/report-source.md).
+- [View Jitter sensitivity](results/jitter_sensitivity.svg).
+
+Run these commands from the repository root to rebuild the published evidence.
+
+```sh
+python scripts/evidence_catalog.py
+python scripts/render_evidence_page.py
+python scripts/profile_evidence_tables.py
+python scripts/render_table_profiles.py
+```
